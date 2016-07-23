@@ -2,6 +2,7 @@
 redis的使用
 
 【首先要在电脑上安装redis的server端】
+
 1. 	在 https://github.com/MSOpenTech/redis 或 当前目录下 或其他地方 下载redis的server程序。
 
 2. 	redis中几个exe程序的功能，
@@ -25,6 +26,6 @@ redis的使用
 1. 	http://www.tutorialspoint.com/redis/redis_java.htm 下载 redis.x.x.jar包，并导入java项目中
 	注意：要下载jar包，不要redis.x.x.source.jar包，在下载地址中去掉source即可下载redis.x.x.jar包
 
-2. 去http://www.tutorialspoint.com/redis/redis_java.htm看具体使用方法
+2. 	去http://www.tutorialspoint.com/redis/redis_java.htm看具体使用方法
 
 	
