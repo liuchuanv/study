@@ -1,5 +1,8 @@
 package base;
 
+import java.util.List;
+import java.util.Set;
+
 import redis.clients.jedis.Jedis;
 
 public class BaseDemo1 {
@@ -7,6 +10,10 @@ public class BaseDemo1 {
 		testConn();
 		System.out.println("------------------------");
 		testStoreString();
+//		System.out.println("------------------------");
+//		testStoreList();
+		System.out.println("------------------------");
+		testGetAllKeys();
 	}
 	//测试连接
 	public static void testConn(){
@@ -35,6 +42,17 @@ public class BaseDemo1 {
 		
 		//变量存储的数据并输出
 		List<String> list = redis.lrange("demo-list", 0, 10);
-		
+		System.out.println("Stored list in redis:: " + list );
 	}
+	
+	//获取存储在 redis 中的所有key
+	public static void testGetAllKeys(){
+		Jedis redis = new Jedis("127.0.0.1");
+		
+		Set<String> allKeys = redis.keys("*");
+		for(String key : allKeys ){
+			System.out.println("Store Key in redis:: " + key);
+		}
+	}
+	
 }
