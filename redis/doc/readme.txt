@@ -26,16 +26,21 @@ redis的使用
 1. 	http://www.tutorialspoint.com/redis/redis_java.htm 下载 redis.x.x.jar包，并导入java项目中
 	注意：要下载jar包，不要redis.x.x.source.jar包，在下载地址中去掉source即可下载redis.x.x.jar包
 
-2. 	去http://www.tutorialspoint.com/redis/redis_java.htm看具体使用方法
+2. 	去http://www.tutorialspoint.com/redis/redis_java.htm 看具体使用方法
 
 	
 【在php中使用redis】
+
 1.	在 https://github.com/phpredis/phpredis/downloads 下载对应php版本的压缩包
+
 2.	将压缩包中的dll文件放在 php/ext 目录下
+
 3.	修改php.ini，添加下面的（顺序不能变）
 		extension=php_igbinary.dll
 		extension=php_redis.dll
+
 4.	重启apache
+
 5.	php测试代码
 	<?php
 		$redis = new Redis();
