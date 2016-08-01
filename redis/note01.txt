@@ -1,0 +1,52 @@
+
+Redis是一个开源的、先进的key-value存储。
+优点：	1. 很快。每秒可执行1100000设置操作，81000个读取操作。
+		2. 支持丰富的数据类型。如字符串、列表、集合、哈希等等
+		3. 操作都是原子性的。以保证多个用户同时访问redis服务器得到的是更新后的值。
+		4. MultiUnility工具
+	
+安装并启动redis
+
+查看redis是否安装
+	redis-cli
+
+[String]
+set key val
+get key
+del key
+exists key
+
+[Hashes]
+hmset key first '第一个' second '第二个'	//key后面的是键值对
+hgetall key		//获取hash表的所有数据
+hget key first	//返回 '第一个'
+hdel key first seconde 	//删除key哈希表中的first和second
+
+[list]
+lpush key val1 [val2]
+linsert key before/after old_val new_val	//在一个val前/后插入新val
+lrange key start stop	//得到start到stop的元素
+lset key index value 	//index从0开始
+lpop key	//删除并得到第一个元素
+rpop key 	//删除并得到最后一个元素（r表示rear，意背面、后尾）
+llen key	//得到list长度
+lindex key index	//根据index得到元素
+
+[set]	set是无序、唯一集合
+sadd key member1 [member2]
+scard key 		//得到set的长度
+smembers key	//得到名为key集合中所有的元素
+spop key		//删除并得到随机一个元素
+srem key member1 member2 //删除key集合中的member1和member2
+sismember key member1 	//判断member1是否是key集合中的元素
+
+	集合间的操作
+sdiff key1 key2		//得到key1中独有的元素
+sinter key1 key2	//得到key1和key2的交集
+sunion key1 key2 	//得到key1和key2的合集
+
+
+
+
+
+	
