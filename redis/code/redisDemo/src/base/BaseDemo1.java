@@ -25,4 +25,16 @@ public class BaseDemo1 {
 		//获取存储的数据并输出
 		System.out.println("Stored string in redis:: " + redis.get("name"));
 	}
+	public static void testStoreList(){
+		Jedis redis = new Jedis("127.0.0.1");
+		
+		//存储数据到列表中
+		redis.lpush("demo-list", "redis");
+		redis.lpush("demo-list", "java");
+		redis.lpush("demo-list", "study");
+		
+		//变量存储的数据并输出
+		List<String> list = redis.lrange("demo-list", 0, 10);
+		
+	}
 }
