@@ -8,16 +8,40 @@ Redis是一个开源的、先进的key-value存储。
 安装并启动redis
 
 查看redis是否安装
-	redis-cli
+	redis-cli -h 127.0.0.1 -p 6379
+	ping
+
+[基本命令]
+exists key			//判断key是否存在
+del key
+expire key seconds 	//设置过期时间，返回0表示key不存在
+expireat key timestamp	//用时间戳设置过期时间
+ttl	key				//得到有效时间，-1表示没有设置过期时间，-2表示已过期
+keys pattern		//用正则获取redis中所有的key，如 keys *
+randdomkey			//任意返回一个key
+rename key newkey	
+renamenx key newkey	//如果newkey存在，则重命名失败，返回0
+type key			//得到key的数据类型，如string,set
 
 [String]
 set key val
 get key
-del key
-exists key
+append key
+getrange key start stop
+getset key value	//设置new value并返回key的old value
+strlen key
+mget key1 key2 ..	//得到多个key的值
+mset key1 value1 key2 value2	//设置多个键值对
+msetnx key1 value2 key2 value2	//设置多个不存在的键值对，如果存在key则设置失败，返回0
+incr key			//如果value是数字，则+1，如果不是则报错
+incrby key n		//给value+n，n可以为负
+incrbyfloat key f 	//给类型为float的value+f，f可以是float
+decr key			//给value-1
+decrby key n		//给value-n
 
-[Hashes]
-hmset key first '第一个' second '第二个'	//key后面的是键值对
+
+[Hashes]	存储都是string类型的键值对
+hmset key field1	//key后面的是键值对
 hgetall key		//获取hash表的所有数据
 hget key first	//返回 '第一个'
 hdel key first seconde 	//删除key哈希表中的first和second
