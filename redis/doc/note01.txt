@@ -4,7 +4,9 @@ Redis是一个开源的、先进的key-value存储。
 		2. 支持丰富的数据类型。如字符串、列表、集合、哈希等等
 		3. 操作都是原子性的。以保证多个用户同时访问redis服务器得到的是更新后的值。
 		4. MultiUnility工具
-	
+		
+redis 运行时将键值对存储在内存
+		
 安装并启动redis
 
 查看redis是否安装
@@ -41,36 +43,90 @@ decrby key n		//给value-n
 
 
 [Hashes]	存储都是string类型的键值对
-hmset key field1	//key后面的是键值对
-hgetall key		//获取hash表的所有数据
-hget key first	//返回 '第一个'
-hdel key first seconde 	//删除key哈希表中的first和second
+hset key field value
+hget key field
+hmset key field1 value1 field2 value2 ..	//key后面的是键值对
+hmsetnx key field1 value1 field2 value2 ..
+hmget key filed1 field2 
 
-[list]
-lpush key val1 [val2]
+hexists key field1			//
+hgetall key					//获取key的所有键值对
+
+hdel key field1 field2 		//删除key哈希表中的field1和field2
+hlen key					//得到哈希表的长度
+hincrby key filed n			//给field+1
+hincrbyfloat key filed n
+
+hkeys key
+hvals key
+
+[list]列表或者说是栈
+lpush key value1 value2		//插入开头
+lpushx key value1 value2 	//如果key存在，则插入开头
+rpush key value1 value2 	//插入末尾
+rpushx key value1 value2	//如果key存在，则插入末尾
+
+lpop key					//删除并得到第一个元素
+rpop key 					//删除并得到最后一个元素（r表示rear，意背面、后尾）
+blpop key1 key2 timeout		//删除并得到第一个元素，如果没有元素，则阻塞直到有元素或者timeout为止
+brpop key1 key2 timeout
+lrem key count value 		//删除第一个和value相等的元素。count为正则正序，负则倒序，0则删除全部和value相等的元素
+
 linsert key before/after old_val new_val	//在一个val前/后插入新val
-lrange key start stop	//得到start到stop的元素
-lset key index value 	//index从0开始
-lpop key	//删除并得到第一个元素
-rpop key 	//删除并得到最后一个元素（r表示rear，意背面、后尾）
-llen key	//得到list长度
-lindex key index	//根据index得到元素
+lrange key start stop		//得到start到stop的元素
+lset key index value 		//index从0开始
+
+
+llen key					//得到list长度
+lindex key index			//根据index得到元素
 
 [set]	set是无序、唯一集合
 sadd key member1 [member2]
-scard key 		//得到set的长度
-smembers key	//得到名为key集合中所有的元素
-spop key		//删除并得到随机一个元素
-srem key member1 member2 //删除key集合中的member1和member2
+scard key 				//得到set的长度
+smembers key			//得到名为key集合中所有的元素
 sismember key member1 	//判断member1是否是key集合中的元素
+srandmember key [count] //得到count个任意元素
+spop key				//删除并得到随机一个元素
+srem key member1 member2 //删除key集合中的member1和member2
 
 	集合间的操作
 sdiff key1 key2		//得到key1中独有的元素
 sinter key1 key2	//得到key1和key2的交集
 sunion key1 key2 	//得到key1和key2的合集
 
+[Sorted Set] 和set相似，只是有序的集合
+zadd key score1 member1 score2 member2 ...	
+zcard key 
+zcount key min max 	//计算索引min到索引max之间的元素个数
+zrange key min max 	//得到索引min-max之间的元素
+zrangebysocre key min max 	//得到minScore和maxScore之间的元素
+zrank key member 	//得到member的索引，不是score
+zscore key member 	//得到member的score
+zrem key member 	//删除key中的member
 
+[publish/subscribe]
+sender和reciver之间的通信
+subscribe channel 			//订阅一个管道，这个管道中的通信都能收到
+publish channel message		//向管道中发送message
 
+[transactions] 事务
+multi		//开始事务
+	..一大堆的redis命令
+exec		//执行上面的一大堆命令
 
+[connection] 连接命令大多用来管理客户端和服务端的连接
+auth password		//输入密码
+ping				//检查连接是否正常
+quit				//关闭当前连接
 
+//设置redis-server 密码
+在redis.conf中找到 requirepass ，然后 requirepass mypassword 即可
+启动时 redis-server xxx/redis.conf 表示使用redis.conf中的设置
+这样连接redis server时必须先 auth mypassword ，否则不能使用命令
+
+[server]
+info		//查看redis服务信息
+save		//保存redis database 到 disk
+bgsave		//异步保存redis database 到 disk
+dbsize		//得到database中key的数量
 	
