@@ -30,12 +30,17 @@ redis的使用
 
 	
 【在php中使用redis】
+
 1.	在 https://github.com/phpredis/phpredis/downloads 下载对应php版本的压缩包
+
 2.	将压缩包中的dll文件放在 php/ext 目录下
+
 3.	修改php.ini，添加下面的（顺序不能变）
 		extension=php_igbinary.dll
 		extension=php_redis.dll
+		
 4.	重启apache
+
 5.	php测试代码
 	<?php
 		$redis = new Redis();
