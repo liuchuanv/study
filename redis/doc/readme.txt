@@ -1,47 +1,47 @@
 
-redisµÄÊ¹ÓÃ
+redisçš„ä½¿ç”¨
 
-¡¾Ê×ÏÈÒªÔÚµçÄÔÉÏ°²×°redisµÄserver¶Ë¡¿
+ã€é¦–å…ˆè¦åœ¨ç”µè„‘ä¸Šå®‰è£…redisçš„serverç«¯ã€‘
 
-1. 	ÔÚ https://github.com/MSOpenTech/redis »ò µ±Ç°Ä¿Â¼ÏÂ »òÆäËûµØ·½ ÏÂÔØredisµÄserver³ÌĞò¡£
+1. 	åœ¨ https://github.com/MSOpenTech/redis æˆ– å½“å‰ç›®å½•ä¸‹ æˆ–å…¶ä»–åœ°æ–¹ ä¸‹è½½redisçš„serverç¨‹åºã€‚
 
-2. 	redisÖĞ¼¸¸öexe³ÌĞòµÄ¹¦ÄÜ£¬
-	* reids-server.exe 		·şÎñ¶Ë
-	* redis-cli.exe			¿Í»§¶Ë
-	* redis-check-dump.exe	±¾µØÊı¾İ¿â¼ì²é
+2. 	redisä¸­å‡ ä¸ªexeç¨‹åºçš„åŠŸèƒ½ï¼Œ
+	* reids-server.exe 		æœåŠ¡ç«¯
+	* redis-cli.exe			å®¢æˆ·ç«¯
+	* redis-check-dump.exe	æœ¬åœ°æ•°æ®åº“æ£€æŸ¥
 	
-3. 	½«redisµÄÂ·¾¶Ìí¼Óµ½ÏµÍ³±äÁ¿pathÖĞ£¬ÒÔ±ãÔÚÆäËûÄ¿Â¼Ò²ÄÜÊ¹ÓÃredisÃüÁî
+3. 	å°†redisçš„è·¯å¾„æ·»åŠ åˆ°ç³»ç»Ÿå˜é‡pathä¸­ï¼Œä»¥ä¾¿åœ¨å…¶ä»–ç›®å½•ä¹Ÿèƒ½ä½¿ç”¨rediså‘½ä»¤
 	
-4. 	Æô¶¯redis·şÎñ£¬´ò¿ªcmd´°¿Ú£¬ÊäÈë redis-server £¬³öÏÖÒ»¸ö"ĞşÃî"µÄÍ¼°¸...±íÊ¾³É¹¦ÁË¡£
+4. 	å¯åŠ¨redisæœåŠ¡ï¼Œæ‰“å¼€cmdçª—å£ï¼Œè¾“å…¥ redis-server ï¼Œå‡ºç°ä¸€ä¸ª"ç„å¦™"çš„å›¾æ¡ˆ...è¡¨ç¤ºæˆåŠŸäº†ã€‚
 
-5. 	ÅªÒ»·İÅäÖÃÎÄ¼ş redis.conf »ò redis.windows.conf µ½redisÄ¿Â¼ÏÂ£¬
-	´ò¿ªcmd´°¿ÚÊäÈë redis-server.exe E:\server\redis\redis.windows.conf £¨ÅäÖÃÎÄ¼şÄ¿Â¼ÊÓÇé¿ö¶ø¶¨£©
+5. 	å¼„ä¸€ä»½é…ç½®æ–‡ä»¶ redis.conf æˆ– redis.windows.conf åˆ°redisç›®å½•ä¸‹ï¼Œ
+	æ‰“å¼€cmdçª—å£è¾“å…¥ redis-server.exe E:\server\redis\redis.windows.conf ï¼ˆé…ç½®æ–‡ä»¶ç›®å½•è§†æƒ…å†µè€Œå®šï¼‰
 
-6. 	²âÊÔ£¬ÁíÍâÔÚ´ò¿ªÒ»¸öcmd´°¿Ú£¬ÊäÈë redis-cli -h 127.0.0.1 -p 6379 »Ø³µ£¬
-	ÔÙÉèÖÃÒ»¸ö¼üÖµ¶Ô set key01 value01£¬»ñÈ¡¼üÖµ¶Ô get key01
+6. 	æµ‹è¯•ï¼Œå¦å¤–åœ¨æ‰“å¼€ä¸€ä¸ªcmdçª—å£ï¼Œè¾“å…¥ redis-cli -h 127.0.0.1 -p 6379 å›è½¦ï¼Œ
+	å†è®¾ç½®ä¸€ä¸ªé”®å€¼å¯¹ set key01 value01ï¼Œè·å–é”®å€¼å¯¹ get key01
 
 
-¡¾ÔÚjavaÖĞÊ¹ÓÃredis¡¿
+ã€åœ¨javaä¸­ä½¿ç”¨redisã€‘
 
-1. 	http://www.tutorialspoint.com/redis/redis_java.htm ÏÂÔØ redis.x.x.jar°ü£¬²¢µ¼ÈëjavaÏîÄ¿ÖĞ
-	×¢Òâ£ºÒªÏÂÔØjar°ü£¬²»Òªredis.x.x.source.jar°ü£¬ÔÚÏÂÔØµØÖ·ÖĞÈ¥µôsource¼´¿ÉÏÂÔØredis.x.x.jar°ü
+1. 	http://www.tutorialspoint.com/redis/redis_java.htm ä¸‹è½½ redis.x.x.jaråŒ…ï¼Œå¹¶å¯¼å…¥javaé¡¹ç›®ä¸­
+	æ³¨æ„ï¼šè¦ä¸‹è½½jaråŒ…ï¼Œä¸è¦redis.x.x.source.jaråŒ…ï¼Œåœ¨ä¸‹è½½åœ°å€ä¸­å»æ‰sourceå³å¯ä¸‹è½½redis.x.x.jaråŒ…
 
-2. 	È¥http://www.tutorialspoint.com/redis/redis_java.htm ¿´¾ßÌåÊ¹ÓÃ·½·¨
+2. 	å»http://www.tutorialspoint.com/redis/redis_java.htm çœ‹å…·ä½“ä½¿ç”¨æ–¹æ³•
 
 	
-¡¾ÔÚphpÖĞÊ¹ÓÃredis¡¿
+ã€åœ¨phpä¸­ä½¿ç”¨redisã€‘
 
-1.	ÔÚ https://github.com/phpredis/phpredis/downloads ÏÂÔØ¶ÔÓ¦php°æ±¾µÄÑ¹Ëõ°ü
+1.	åœ¨ https://github.com/phpredis/phpredis/downloads ä¸‹è½½å¯¹åº”phpç‰ˆæœ¬çš„å‹ç¼©åŒ…
 
-2.	½«Ñ¹Ëõ°üÖĞµÄdllÎÄ¼ş·ÅÔÚ php/ext Ä¿Â¼ÏÂ
+2.	å°†å‹ç¼©åŒ…ä¸­çš„dllæ–‡ä»¶æ”¾åœ¨ php/ext ç›®å½•ä¸‹
 
-3.	ĞŞ¸Äphp.ini£¬Ìí¼ÓÏÂÃæµÄ£¨Ë³Ğò²»ÄÜ±ä£©
+3.	ä¿®æ”¹php.iniï¼Œæ·»åŠ ä¸‹é¢çš„ï¼ˆé¡ºåºä¸èƒ½å˜ï¼‰
 		extension=php_igbinary.dll
 		extension=php_redis.dll
 
-4.	ÖØÆôapache
+4.	é‡å¯apache
 
-5.	php²âÊÔ´úÂë
+5.	phpæµ‹è¯•ä»£ç 
 	<?php
 		$redis = new Redis();
 		$redis->connect('127.0.0.1',6379);

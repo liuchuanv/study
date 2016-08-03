@@ -1,132 +1,132 @@
 
-RedisÊÇÒ»¸ö¿ªÔ´µÄ¡¢ÏÈ½øµÄkey-value´æ´¢¡£
-ÓÅµã£º	1. ºÜ¿ì¡£Ã¿Ãë¿ÉÖ´ĞĞ1100000ÉèÖÃ²Ù×÷£¬81000¸ö¶ÁÈ¡²Ù×÷¡£
-		2. Ö§³Ö·á¸»µÄÊı¾İÀàĞÍ¡£Èç×Ö·û´®¡¢ÁĞ±í¡¢¼¯ºÏ¡¢¹şÏ£µÈµÈ
-		3. ²Ù×÷¶¼ÊÇÔ­×ÓĞÔµÄ¡£ÒÔ±£Ö¤¶à¸öÓÃ»§Í¬Ê±·ÃÎÊredis·şÎñÆ÷µÃµ½µÄÊÇ¸üĞÂºóµÄÖµ¡£
-		4. MultiUnility¹¤¾ß
+Redisæ˜¯ä¸€ä¸ªå¼€æºçš„ã€å…ˆè¿›çš„key-valueå­˜å‚¨ã€‚
+ä¼˜ç‚¹ï¼š	1. å¾ˆå¿«ã€‚æ¯ç§’å¯æ‰§è¡Œ1100000è®¾ç½®æ“ä½œï¼Œ81000ä¸ªè¯»å–æ“ä½œã€‚
+		2. æ”¯æŒä¸°å¯Œçš„æ•°æ®ç±»å‹ã€‚å¦‚å­—ç¬¦ä¸²ã€åˆ—è¡¨ã€é›†åˆã€å“ˆå¸Œç­‰ç­‰
+		3. æ“ä½œéƒ½æ˜¯åŸå­æ€§çš„ã€‚ä»¥ä¿è¯å¤šä¸ªç”¨æˆ·åŒæ—¶è®¿é—®redisæœåŠ¡å™¨å¾—åˆ°çš„æ˜¯æ›´æ–°åçš„å€¼ã€‚
+		4. MultiUnilityå·¥å…·
 		
-redis ÔËĞĞÊ±½«¼üÖµ¶Ô´æ´¢ÔÚÄÚ´æ
+redis è¿è¡Œæ—¶å°†é”®å€¼å¯¹å­˜å‚¨åœ¨å†…å­˜
 		
-°²×°²¢Æô¶¯redis
+å®‰è£…å¹¶å¯åŠ¨redis
 
-²é¿´redisÊÇ·ñ°²×°
+æŸ¥çœ‹redisæ˜¯å¦å®‰è£…
 	redis-cli -h 127.0.0.1 -p 6379
 	ping
 
-[»ù±¾ÃüÁî]
-exists key			//ÅĞ¶ÏkeyÊÇ·ñ´æÔÚ
+[åŸºæœ¬å‘½ä»¤]
+exists key			//åˆ¤æ–­keyæ˜¯å¦å­˜åœ¨
 del key
-expire key seconds 	//ÉèÖÃ¹ıÆÚÊ±¼ä£¬·µ»Ø0±íÊ¾key²»´æÔÚ
-expireat key timestamp	//ÓÃÊ±¼ä´ÁÉèÖÃ¹ıÆÚÊ±¼ä
-ttl	key				//µÃµ½ÓĞĞ§Ê±¼ä£¬-1±íÊ¾Ã»ÓĞÉèÖÃ¹ıÆÚÊ±¼ä£¬-2±íÊ¾ÒÑ¹ıÆÚ
-keys pattern		//ÓÃÕıÔò»ñÈ¡redisÖĞËùÓĞµÄkey£¬Èç keys *
-randdomkey			//ÈÎÒâ·µ»ØÒ»¸ökey
+expire key seconds 	//è®¾ç½®è¿‡æœŸæ—¶é—´ï¼Œè¿”å›0è¡¨ç¤ºkeyä¸å­˜åœ¨
+expireat key timestamp	//ç”¨æ—¶é—´æˆ³è®¾ç½®è¿‡æœŸæ—¶é—´
+ttl	key				//å¾—åˆ°æœ‰æ•ˆæ—¶é—´ï¼Œ-1è¡¨ç¤ºæ²¡æœ‰è®¾ç½®è¿‡æœŸæ—¶é—´ï¼Œ-2è¡¨ç¤ºå·²è¿‡æœŸ
+keys pattern		//ç”¨æ­£åˆ™è·å–redisä¸­æ‰€æœ‰çš„keyï¼Œå¦‚ keys *
+randdomkey			//ä»»æ„è¿”å›ä¸€ä¸ªkey
 rename key newkey	
-renamenx key newkey	//Èç¹ûnewkey´æÔÚ£¬ÔòÖØÃüÃûÊ§°Ü£¬·µ»Ø0
-type key			//µÃµ½keyµÄÊı¾İÀàĞÍ£¬Èçstring,set
+renamenx key newkey	//å¦‚æœnewkeyå­˜åœ¨ï¼Œåˆ™é‡å‘½åå¤±è´¥ï¼Œè¿”å›0
+type key			//å¾—åˆ°keyçš„æ•°æ®ç±»å‹ï¼Œå¦‚string,set
 
 [String]
 set key val
 get key
 append key
 getrange key start stop
-getset key value	//ÉèÖÃnew value²¢·µ»ØkeyµÄold value
+getset key value	//è®¾ç½®new valueå¹¶è¿”å›keyçš„old value
 strlen key
-mget key1 key2 ..	//µÃµ½¶à¸ökeyµÄÖµ
-mset key1 value1 key2 value2	//ÉèÖÃ¶à¸ö¼üÖµ¶Ô
-msetnx key1 value2 key2 value2	//ÉèÖÃ¶à¸ö²»´æÔÚµÄ¼üÖµ¶Ô£¬Èç¹û´æÔÚkeyÔòÉèÖÃÊ§°Ü£¬·µ»Ø0
-incr key			//Èç¹ûvalueÊÇÊı×Ö£¬Ôò+1£¬Èç¹û²»ÊÇÔò±¨´í
-incrby key n		//¸øvalue+n£¬n¿ÉÒÔÎª¸º
-incrbyfloat key f 	//¸øÀàĞÍÎªfloatµÄvalue+f£¬f¿ÉÒÔÊÇfloat
-decr key			//¸øvalue-1
-decrby key n		//¸øvalue-n
+mget key1 key2 ..	//å¾—åˆ°å¤šä¸ªkeyçš„å€¼
+mset key1 value1 key2 value2	//è®¾ç½®å¤šä¸ªé”®å€¼å¯¹
+msetnx key1 value2 key2 value2	//è®¾ç½®å¤šä¸ªä¸å­˜åœ¨çš„é”®å€¼å¯¹ï¼Œå¦‚æœå­˜åœ¨keyåˆ™è®¾ç½®å¤±è´¥ï¼Œè¿”å›0
+incr key			//å¦‚æœvalueæ˜¯æ•°å­—ï¼Œåˆ™+1ï¼Œå¦‚æœä¸æ˜¯åˆ™æŠ¥é”™
+incrby key n		//ç»™value+nï¼Œnå¯ä»¥ä¸ºè´Ÿ
+incrbyfloat key f 	//ç»™ç±»å‹ä¸ºfloatçš„value+fï¼Œfå¯ä»¥æ˜¯float
+decr key			//ç»™value-1
+decrby key n		//ç»™value-n
 
 
-[Hashes]	´æ´¢¶¼ÊÇstringÀàĞÍµÄ¼üÖµ¶Ô
+[Hashes]	å­˜å‚¨éƒ½æ˜¯stringç±»å‹çš„é”®å€¼å¯¹
 hset key field value
 hget key field
-hmset key field1 value1 field2 value2 ..	//keyºóÃæµÄÊÇ¼üÖµ¶Ô
+hmset key field1 value1 field2 value2 ..	//keyåé¢çš„æ˜¯é”®å€¼å¯¹
 hmsetnx key field1 value1 field2 value2 ..
 hmget key filed1 field2 
 
 hexists key field1			//
-hgetall key					//»ñÈ¡keyµÄËùÓĞ¼üÖµ¶Ô
+hgetall key					//è·å–keyçš„æ‰€æœ‰é”®å€¼å¯¹
 
-hdel key field1 field2 		//É¾³ıkey¹şÏ£±íÖĞµÄfield1ºÍfield2
-hlen key					//µÃµ½¹şÏ£±íµÄ³¤¶È
-hincrby key filed n			//¸øfield+1
+hdel key field1 field2 		//åˆ é™¤keyå“ˆå¸Œè¡¨ä¸­çš„field1å’Œfield2
+hlen key					//å¾—åˆ°å“ˆå¸Œè¡¨çš„é•¿åº¦
+hincrby key filed n			//ç»™field+1
 hincrbyfloat key filed n
 
 hkeys key
 hvals key
 
-[list]ÁĞ±í»òÕßËµÊÇÕ»
-lpush key value1 value2		//²åÈë¿ªÍ·
-lpushx key value1 value2 	//Èç¹ûkey´æÔÚ£¬Ôò²åÈë¿ªÍ·
-rpush key value1 value2 	//²åÈëÄ©Î²
-rpushx key value1 value2	//Èç¹ûkey´æÔÚ£¬Ôò²åÈëÄ©Î²
+[list]åˆ—è¡¨æˆ–è€…è¯´æ˜¯æ ˆ
+lpush key value1 value2		//æ’å…¥å¼€å¤´
+lpushx key value1 value2 	//å¦‚æœkeyå­˜åœ¨ï¼Œåˆ™æ’å…¥å¼€å¤´
+rpush key value1 value2 	//æ’å…¥æœ«å°¾
+rpushx key value1 value2	//å¦‚æœkeyå­˜åœ¨ï¼Œåˆ™æ’å…¥æœ«å°¾
 
-lpop key					//É¾³ı²¢µÃµ½µÚÒ»¸öÔªËØ
-rpop key 					//É¾³ı²¢µÃµ½×îºóÒ»¸öÔªËØ£¨r±íÊ¾rear£¬Òâ±³Ãæ¡¢ºóÎ²£©
-blpop key1 key2 timeout		//É¾³ı²¢µÃµ½µÚÒ»¸öÔªËØ£¬Èç¹ûÃ»ÓĞÔªËØ£¬Ôò×èÈûÖ±µ½ÓĞÔªËØ»òÕßtimeoutÎªÖ¹
+lpop key					//åˆ é™¤å¹¶å¾—åˆ°ç¬¬ä¸€ä¸ªå…ƒç´ 
+rpop key 					//åˆ é™¤å¹¶å¾—åˆ°æœ€åä¸€ä¸ªå…ƒç´ ï¼ˆrè¡¨ç¤ºrearï¼Œæ„èƒŒé¢ã€åå°¾ï¼‰
+blpop key1 key2 timeout		//åˆ é™¤å¹¶å¾—åˆ°ç¬¬ä¸€ä¸ªå…ƒç´ ï¼Œå¦‚æœæ²¡æœ‰å…ƒç´ ï¼Œåˆ™é˜»å¡ç›´åˆ°æœ‰å…ƒç´ æˆ–è€…timeoutä¸ºæ­¢
 brpop key1 key2 timeout
-lrem key count value 		//É¾³ıµÚÒ»¸öºÍvalueÏàµÈµÄÔªËØ¡£countÎªÕıÔòÕıĞò£¬¸ºÔòµ¹Ğò£¬0ÔòÉ¾³ıÈ«²¿ºÍvalueÏàµÈµÄÔªËØ
+lrem key count value 		//åˆ é™¤ç¬¬ä¸€ä¸ªå’Œvalueç›¸ç­‰çš„å…ƒç´ ã€‚countä¸ºæ­£åˆ™æ­£åºï¼Œè´Ÿåˆ™å€’åºï¼Œ0åˆ™åˆ é™¤å…¨éƒ¨å’Œvalueç›¸ç­‰çš„å…ƒç´ 
 
-linsert key before/after old_val new_val	//ÔÚÒ»¸övalÇ°/ºó²åÈëĞÂval
-lrange key start stop		//µÃµ½startµ½stopµÄÔªËØ
-lset key index value 		//index´Ó0¿ªÊ¼
+linsert key before/after old_val new_val	//åœ¨ä¸€ä¸ªvalå‰/åæ’å…¥æ–°val
+lrange key start stop		//å¾—åˆ°startåˆ°stopçš„å…ƒç´ 
+lset key index value 		//indexä»0å¼€å§‹
 
 
-llen key					//µÃµ½list³¤¶È
-lindex key index			//¸ù¾İindexµÃµ½ÔªËØ
+llen key					//å¾—åˆ°listé•¿åº¦
+lindex key index			//æ ¹æ®indexå¾—åˆ°å…ƒç´ 
 
-[set]	setÊÇÎŞĞò¡¢Î¨Ò»¼¯ºÏ
+[set]	setæ˜¯æ— åºã€å”¯ä¸€é›†åˆ
 sadd key member1 [member2]
-scard key 				//µÃµ½setµÄ³¤¶È
-smembers key			//µÃµ½ÃûÎªkey¼¯ºÏÖĞËùÓĞµÄÔªËØ
-sismember key member1 	//ÅĞ¶Ïmember1ÊÇ·ñÊÇkey¼¯ºÏÖĞµÄÔªËØ
-srandmember key [count] //µÃµ½count¸öÈÎÒâÔªËØ
-spop key				//É¾³ı²¢µÃµ½Ëæ»úÒ»¸öÔªËØ
-srem key member1 member2 //É¾³ıkey¼¯ºÏÖĞµÄmember1ºÍmember2
+scard key 				//å¾—åˆ°setçš„é•¿åº¦
+smembers key			//å¾—åˆ°åä¸ºkeyé›†åˆä¸­æ‰€æœ‰çš„å…ƒç´ 
+sismember key member1 	//åˆ¤æ–­member1æ˜¯å¦æ˜¯keyé›†åˆä¸­çš„å…ƒç´ 
+srandmember key [count] //å¾—åˆ°countä¸ªä»»æ„å…ƒç´ 
+spop key				//åˆ é™¤å¹¶å¾—åˆ°éšæœºä¸€ä¸ªå…ƒç´ 
+srem key member1 member2 //åˆ é™¤keyé›†åˆä¸­çš„member1å’Œmember2
 
-	¼¯ºÏ¼äµÄ²Ù×÷
-sdiff key1 key2		//µÃµ½key1ÖĞ¶ÀÓĞµÄÔªËØ
-sinter key1 key2	//µÃµ½key1ºÍkey2µÄ½»¼¯
-sunion key1 key2 	//µÃµ½key1ºÍkey2µÄºÏ¼¯
+	é›†åˆé—´çš„æ“ä½œ
+sdiff key1 key2		//å¾—åˆ°key1ä¸­ç‹¬æœ‰çš„å…ƒç´ 
+sinter key1 key2	//å¾—åˆ°key1å’Œkey2çš„äº¤é›†
+sunion key1 key2 	//å¾—åˆ°key1å’Œkey2çš„åˆé›†
 
-[Sorted Set] ºÍsetÏàËÆ£¬Ö»ÊÇÓĞĞòµÄ¼¯ºÏ
+[Sorted Set] å’Œsetç›¸ä¼¼ï¼Œåªæ˜¯æœ‰åºçš„é›†åˆ
 zadd key score1 member1 score2 member2 ...	
 zcard key 
-zcount key min max 	//¼ÆËãË÷Òıminµ½Ë÷ÒımaxÖ®¼äµÄÔªËØ¸öÊı
-zrange key min max 	//µÃµ½Ë÷Òımin-maxÖ®¼äµÄÔªËØ
-zrangebysocre key min max 	//µÃµ½minScoreºÍmaxScoreÖ®¼äµÄÔªËØ
-zrank key member 	//µÃµ½memberµÄË÷Òı£¬²»ÊÇscore
-zscore key member 	//µÃµ½memberµÄscore
-zrem key member 	//É¾³ıkeyÖĞµÄmember
+zcount key min max 	//è®¡ç®—ç´¢å¼•minåˆ°ç´¢å¼•maxä¹‹é—´çš„å…ƒç´ ä¸ªæ•°
+zrange key min max 	//å¾—åˆ°ç´¢å¼•min-maxä¹‹é—´çš„å…ƒç´ 
+zrangebysocre key min max 	//å¾—åˆ°minScoreå’ŒmaxScoreä¹‹é—´çš„å…ƒç´ 
+zrank key member 	//å¾—åˆ°memberçš„ç´¢å¼•ï¼Œä¸æ˜¯score
+zscore key member 	//å¾—åˆ°memberçš„score
+zrem key member 	//åˆ é™¤keyä¸­çš„member
 
 [publish/subscribe]
-senderºÍreciverÖ®¼äµÄÍ¨ĞÅ
-subscribe channel 			//¶©ÔÄÒ»¸ö¹ÜµÀ£¬Õâ¸ö¹ÜµÀÖĞµÄÍ¨ĞÅ¶¼ÄÜÊÕµ½
-publish channel message		//Ïò¹ÜµÀÖĞ·¢ËÍmessage
+senderå’Œreciverä¹‹é—´çš„é€šä¿¡
+subscribe channel 			//è®¢é˜…ä¸€ä¸ªç®¡é“ï¼Œè¿™ä¸ªç®¡é“ä¸­çš„é€šä¿¡éƒ½èƒ½æ”¶åˆ°
+publish channel message		//å‘ç®¡é“ä¸­å‘é€message
 
-[transactions] ÊÂÎñ
-multi		//¿ªÊ¼ÊÂÎñ
-	..Ò»´ó¶ÑµÄredisÃüÁî
-exec		//Ö´ĞĞÉÏÃæµÄÒ»´ó¶ÑÃüÁî
+[transactions] äº‹åŠ¡
+multi		//å¼€å§‹äº‹åŠ¡
+	..ä¸€å¤§å †çš„rediså‘½ä»¤
+exec		//æ‰§è¡Œä¸Šé¢çš„ä¸€å¤§å †å‘½ä»¤
 
-[connection] Á¬½ÓÃüÁî´ó¶àÓÃÀ´¹ÜÀí¿Í»§¶ËºÍ·şÎñ¶ËµÄÁ¬½Ó
-auth password		//ÊäÈëÃÜÂë
-ping				//¼ì²éÁ¬½ÓÊÇ·ñÕı³£
-quit				//¹Ø±Õµ±Ç°Á¬½Ó
+[connection] è¿æ¥å‘½ä»¤å¤§å¤šç”¨æ¥ç®¡ç†å®¢æˆ·ç«¯å’ŒæœåŠ¡ç«¯çš„è¿æ¥
+auth password		//è¾“å…¥å¯†ç 
+ping				//æ£€æŸ¥è¿æ¥æ˜¯å¦æ­£å¸¸
+quit				//å…³é—­å½“å‰è¿æ¥
 
-//ÉèÖÃredis-server ÃÜÂë
-ÔÚredis.confÖĞÕÒµ½ requirepass £¬È»ºó requirepass mypassword ¼´¿É
-Æô¶¯Ê± redis-server xxx/redis.conf ±íÊ¾Ê¹ÓÃredis.confÖĞµÄÉèÖÃ
-ÕâÑùÁ¬½Óredis serverÊ±±ØĞëÏÈ auth mypassword £¬·ñÔò²»ÄÜÊ¹ÓÃÃüÁî
+//è®¾ç½®redis-server å¯†ç 
+åœ¨redis.confä¸­æ‰¾åˆ° requirepass ï¼Œç„¶å requirepass mypassword å³å¯
+å¯åŠ¨æ—¶ redis-server xxx/redis.conf è¡¨ç¤ºä½¿ç”¨redis.confä¸­çš„è®¾ç½®
+è¿™æ ·è¿æ¥redis serveræ—¶å¿…é¡»å…ˆ auth mypassword ï¼Œå¦åˆ™ä¸èƒ½ä½¿ç”¨å‘½ä»¤
 
 [server]
-info		//²é¿´redis·şÎñĞÅÏ¢
-save		//±£´æredis database µ½ disk
-bgsave		//Òì²½±£´æredis database µ½ disk
-dbsize		//µÃµ½databaseÖĞkeyµÄÊıÁ¿
+info		//æŸ¥çœ‹redisæœåŠ¡ä¿¡æ¯
+save		//ä¿å­˜redis database åˆ° disk
+bgsave		//å¼‚æ­¥ä¿å­˜redis database åˆ° disk
+dbsize		//å¾—åˆ°databaseä¸­keyçš„æ•°é‡
 	
