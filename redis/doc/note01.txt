@@ -20,7 +20,7 @@ expire key seconds 	//设置过期时间，返回0表示key不存在
 expireat key timestamp	//用时间戳设置过期时间
 ttl	key				//得到有效时间，-1表示没有设置过期时间，-2表示已过期
 keys pattern		//用正则获取redis中所有的key，如 keys *
-randdomkey			//任意返回一个key
+randomkey			//任意返回一个key
 rename key newkey	
 renamenx key newkey	//如果newkey存在，则重命名失败，返回0
 type key			//得到key的数据类型，如string,set
@@ -28,7 +28,7 @@ type key			//得到key的数据类型，如string,set
 [String]
 set key val
 get key
-append key
+append key val
 getrange key start stop
 getset key value	//设置new value并返回key的old value
 strlen key
